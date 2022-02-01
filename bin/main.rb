@@ -6,7 +6,7 @@ def user_input ()
 end
 
 
-triangle = PascalTriangle.new(8)
+triangle = PascalTriangle.new(5)
 triangle.print_triangle()
 
 
