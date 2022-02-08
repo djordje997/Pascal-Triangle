@@ -19,5 +19,4 @@ class PascalTriangle
   def generate_next_row(row)
     ([0] + row).zip(row + [0]).collect { |a, b| a + b }
   end
-  
 end

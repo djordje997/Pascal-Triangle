@@ -1,4 +1,5 @@
 require_relative '../lib/triangle.rb'
+
 describe "PascalTriangle create triangle of 5 rows" do
   triangle = PascalTriangle.new(5).create_triangle()
   it "first row is [1]" do
