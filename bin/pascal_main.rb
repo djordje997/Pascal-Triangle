@@ -8,7 +8,8 @@ def user_input ()
   get_user_input
 end
 
-def print_triangle(triangle)
+def print_triangle(triangle_generator)
+  triangle = triangle_generator.triangle
   last_row = triangle[-1].join(" ")
   longest_row = last_row.length
   triangle.each do |current|
@@ -19,10 +20,15 @@ def print_triangle(triangle)
   end
 end
 
-number_of_rows = user_input()
+if ARGV[0] == nil
+  number_of_rows = user_input()
+else
+  number_of_rows = ARGV[0].to_i
+end
+
 triangle_generator = PascalTriangle.new(number_of_rows)
-triangle = triangle_generator.create_triangle()
-print_triangle(triangle)
+triangle_generator.create_triangle()
+print_triangle(triangle_generator)
 
 
 
