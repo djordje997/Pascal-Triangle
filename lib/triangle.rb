@@ -2,11 +2,14 @@ class PascalTriangle
   
   def initialize(number_of_rows)
     @number_of_rows = number_of_rows
+    @triangle = []
   end
 
   def to_a
-    triangle = create_triangle
-    triangle
+    if @triangle == []
+      @triangle = create_triangle
+    end
+   @triangle
   end
 
   def to_s
