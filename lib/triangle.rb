@@ -22,8 +22,8 @@ class PascalTriangle
       (longest_row / 2 - current_lenght / 2).times {string_triangle += " "}
       string_triangle += current.join(" ")
       string_triangle += "\n"
-      
     end
+    p string_triangle.inspect
     string_triangle
   end
 
