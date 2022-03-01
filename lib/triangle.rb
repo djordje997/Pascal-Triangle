@@ -5,26 +5,30 @@ class PascalTriangle
     @triangle = nil
   end
 
-  def to_a
-    @tringle || create_triangle
-  end
-
   def to_s
     triangle = to_a
-    string_triangle = ""
+    formated_triangle = ""
     longest_row_length = triangle.last.join(" ").length
     triangle.each do |current|
-      current_row_formated = current.join(" ")
-      current_length = current_row_formated.length
-      spacing = (longest_row_length - current_length) / 2
-      string_triangle << " " * spacing
-      string_triangle += current_row_formated
-      string_triangle += "\n"
+      formated_triangle += formated_triangle_row(current, longest_row_length)
     end
-    string_triangle
+    formated_triangle
   end
 
   private
+
+    def formated_triangle_row(current, longest_row_length)
+      current_row_formated = current.join(" ")
+      spacing = (longest_row_length - current_row_formated.length) / 2
+      formated_triangle = " " * spacing
+      formated_triangle += current_row_formated
+      formated_triangle += "\n"
+      formated_triangle
+    end
+
+    def to_a
+      @tringle || create_triangle
+    end
 
     def create_triangle
     @triangle = []
