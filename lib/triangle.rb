@@ -5,6 +5,10 @@ class PascalTriangle
     @triangle = nil
   end
 
+  def to_a
+    triangle
+  end
+  
   def to_s
     triangle = to_a
     formated_triangle = ""
@@ -26,18 +30,18 @@ class PascalTriangle
       formated_triangle
     end
 
-    def to_a
-      @tringle || create_triangle
+    def triangle
+      @triangle = []
+      @return_triangle ||= create_triangle(@triangle)
     end
 
-    def create_triangle
-    @triangle = []
+    def create_triangle(triangle)
     row = [1]
     @number_of_rows.times do
-      @triangle << row
+      triangle << row
       row = generate_next_row(row)
     end
-    @triangle
+    triangle
     end
   
     def generate_next_row(row)
