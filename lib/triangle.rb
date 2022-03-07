@@ -31,8 +31,8 @@ class PascalTriangle
     end
 
     def triangle
-      @triangle = []
-      @return_triangle ||= create_triangle(@triangle)
+      triangle = []
+      @triangle ||= create_triangle(triangle)
     end
 
     def create_triangle(triangle)
