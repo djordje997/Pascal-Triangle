@@ -1,5 +1,4 @@
 class PascalTriangle
-  
   def initialize(number_of_rows)
     @number_of_rows = number_of_rows
     @triangle = nil
@@ -10,7 +9,6 @@ class PascalTriangle
   end
   
   def to_s
-    triangle = to_a
     formated_triangle = ""
     longest_row_length = triangle.last.join(" ").length
     triangle.each do |current|
@@ -31,15 +29,13 @@ class PascalTriangle
   end
 
   def triangle
-    triangle = []
-    @triangle ||= create_triangle(triangle)
+    @triangle ||= create_triangle
   end
 
-  def create_triangle(triangle)
-    row = [1]
-    @number_of_rows.times do
-      triangle << row
-      row = generate_next_row(row)
+  def create_triangle
+    triangle = [[1]]
+    (@number_of_rows-1).times do
+      triangle <<  generate_next_row(triangle.last)
     end
     triangle
   end
